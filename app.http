@@ -1,0 +1,55 @@
+### Register a new user
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "salonii",
+  "name": "chandra",
+  "password": "kuchbhi",
+  "gender": "female",
+  "location": "Los-Angeles"
+}
+
+### Login to get the JWT token
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "salonii",
+  "password": "kuchbhi"
+}
+
+### Change password (Replace <TOKEN> with the actual token)
+PUT http://localhost:3000/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbG9uaWkiLCJpYXQiOjE3MTg5NjI0NDgsImV4cCI6MTcxODk2NjA0OH0.Rtp6zVeMCTo_fBX5FM6-oqe6QrfrGdWXtR5we2scN_E
+
+{
+  "username": "cliffordhayes",
+  "oldPassword": "yourpassword",
+  "newPassword": "newpassword"
+}
+
+### Get all users (Replace <TOKEN> with the actual token)
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbG9uaWkiLCJpYXQiOjE3MTg5NjI0NDgsImV4cCI6MTcxODk2NjA0OH0.Rtp6zVeMCTo_fBX5FM6-oqe6QrfrGdWXtR5we2scN_E
+
+### Get a single user by username (Replace <TOKEN> with the actual token)
+GET http://localhost:3000/users/cliffordhayes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbG9uaWkiLCJpYXQiOjE3MTg5NjI0NDgsImV4cCI6MTcxODk2NjA0OH0.Rtp6zVeMCTo_fBX5FM6-oqe6QrfrGdWXtR5we2scN_E
+
+### Update user information (Replace <TOKEN> with the actual token)
+PUT http://localhost:3000/users/cliffordhayes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbG9uaWkiLCJpYXQiOjE3MTg5NjI0NDgsImV4cCI6MTcxODk2NjA0OH0.Rtp6zVeMCTo_fBX5FM6-oqe6QrfrGdWXtR5we2scN_E
+
+{
+  "name": "Clifford Updated",
+  "password": "updatedpassword",
+  "gender": "female",
+  "location": "San Francisco"
+}
+
+### Delete a user (Replace <TOKEN> with the actual token)
+DELETE http://localhost:3000/users/cliffordhayes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNhbG9uaWkiLCJpYXQiOjE3MTg5NjI0NDgsImV4cCI6MTcxODk2NjA0OH0.Rtp6zVeMCTo_fBX5FM6-oqe6QrfrGdWXtR5we2scN_E
